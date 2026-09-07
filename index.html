@@ -1,0 +1,1838 @@
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VOGUE - Fashion Store</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+            background: #fff;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* TOP BAR */
+
+        .top-bar {
+            background: #111;
+            color: white;
+            font-size: 13px;
+            padding: 9px 0;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: #fff;
+            padding: 20px 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: #111;
+        }
+
+        .navbar-brand:hover {
+            color: #111;
+        }
+
+        .nav-link {
+            color: #222 !important;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover {
+            color: #b8860b !important;
+        }
+
+        .nav-icons i {
+            font-size: 20px;
+            margin-left: 18px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            height: 650px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.30),
+                    rgba(0,0,0,0.30)
+                ),
+                url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 650px;
+        }
+
+        .hero-content span {
+            letter-spacing: 5px;
+            font-size: 15px;
+        }
+
+        .hero-content h1 {
+            font-size: 75px;
+            line-height: 1.05;
+            margin: 20px 0;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .btn-black {
+            background: #111;
+            color: white;
+            padding: 14px 35px;
+            border: 1px solid #111;
+            border-radius: 0;
+            transition: .3s;
+        }
+
+        .btn-black:hover {
+            background: white;
+            color: #111;
+        }
+
+        .btn-white {
+            background: white;
+            color: #111;
+            padding: 14px 35px;
+            border: 1px solid white;
+            border-radius: 0;
+        }
+
+        .btn-white:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* COMMON SECTION */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading small {
+            color: #b8860b;
+            letter-spacing: 4px;
+            font-weight: 600;
+        }
+
+        .section-heading h2 {
+            font-size: 45px;
+            margin-top: 10px;
+        }
+
+        .section-heading p {
+            max-width: 600px;
+            margin: auto;
+            color: #777;
+            line-height: 1.8;
+        }
+
+        /* CATEGORY */
+
+        .category-card {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .6s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: end;
+            padding: 30px;
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.7)
+            );
+        }
+
+        .category-overlay h3 {
+            color: white;
+            font-size: 30px;
+        }
+
+        .category-overlay a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        /* PRODUCT */
+
+        .product-card {
+            border: none;
+            background: white;
+            transition: .4s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            height: 420px;
+            position: relative;
+            overflow: hidden;
+            background: #f5f5f5;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #111;
+            color: white;
+            padding: 6px 13px;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .heart {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            background: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .heart:hover {
+            color: #d00;
+        }
+
+        .product-info {
+            padding: 20px 5px;
+        }
+
+        .product-info h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .stars {
+            color: #e2a900;
+            font-size: 13px;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        .old-price {
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-size: 14px;
+        }
+
+        /* SALE */
+
+        .sale-section {
+            min-height: 500px;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,.45),
+                    rgba(0,0,0,.45)
+                ),
+                url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .sale-content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .sale-content small {
+            letter-spacing: 5px;
+        }
+
+        .sale-content h2 {
+            font-size: 70px;
+            margin: 15px 0;
+        }
+
+        .sale-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* ABOUT */
+
+        .about-img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+
+        .about-content {
+            padding: 30px 40px;
+        }
+
+        .about-content small {
+            color: #b8860b;
+            letter-spacing: 3px;
+        }
+
+        .about-content h2 {
+            font-size: 45px;
+            margin: 15px 0 25px;
+        }
+
+        .about-content p {
+            color: #777;
+            line-height: 1.9;
+        }
+
+        /* FEATURES */
+
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .feature-box i {
+            font-size: 40px;
+            color: #b8860b;
+            margin-bottom: 20px;
+        }
+
+        .feature-box h5 {
+            font-weight: 600;
+        }
+
+        .feature-box p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* TESTIMONIAL */
+
+        .testimonial {
+            background: #f8f8f8;
+            padding: 35px;
+            height: 100%;
+        }
+
+        .testimonial .quote {
+            font-size: 45px;
+            color: #b8860b;
+        }
+
+        .testimonial p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .customer {
+            font-weight: 600;
+        }
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            background: #f2eee9;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 40px;
+        }
+
+        .newsletter p {
+            color: #777;
+        }
+
+        .newsletter-form {
+            max-width: 600px;
+            margin: 30px auto 0;
+        }
+
+        .newsletter-form input {
+            height: 55px;
+            border: none;
+            padding: 0 20px;
+        }
+
+        .newsletter-form button {
+            border: none;
+            background: #111;
+            color: white;
+            padding: 0 30px;
+        }
+
+        /* INSTAGRAM */
+
+        .instagram-img {
+            height: 280px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #111;
+            color: white;
+            padding: 70px 0 25px;
+        }
+
+        footer h4 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 25px;
+        }
+
+        footer p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #555;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+        }
+
+        .copyright {
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            padding-top: 25px;
+            text-align: center;
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 991px) {
+
+            .hero-content h1 {
+                font-size: 55px;
+            }
+
+            .hero {
+                height: 550px;
+            }
+
+            .nav-icons {
+                margin-top: 15px;
+            }
+
+        }
+
+        @media(max-width: 576px) {
+
+            .hero-content h1 {
+                font-size: 43px;
+            }
+
+            .hero-content p {
+                font-size: 15px;
+            }
+
+            .section-heading h2 {
+                font-size: 35px;
+            }
+
+            .sale-content h2 {
+                font-size: 45px;
+            }
+
+            .product-image {
+                height: 300px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+    <div class="container text-center">
+
+        Free Shipping on Orders Above ₹1999
+        &nbsp; | &nbsp;
+        New Collection Available Now
+
+    </div>
+
+</div>
+
+
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+            VOGUE
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="mainNav">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categories">
+                        Categories
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#shop">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="nav-icons">
+
+                <i class="bi bi-search"></i>
+
+                <i class="bi bi-person"></i>
+
+                <i class="bi bi-heart"></i>
+
+                <i class="bi bi-bag"></i>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span>
+                NEW SEASON COLLECTION
+            </span>
+
+            <h1>
+                Fashion That
+                Defines You
+            </h1>
+
+            <p>
+                Discover elegant dresses, timeless styles
+                and modern fashion designed to make
+                every moment special.
+            </p>
+
+            <a href="#shop"
+               class="btn btn-white mt-3">
+
+                SHOP NOW
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- CATEGORIES -->
+
+<section class="section" id="categories">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>
+                EXPLORE COLLECTION
+            </small>
+
+            <h2>
+                Shop By Category
+            </h2>
+
+            <p>
+                Find your perfect look from our carefully
+                selected fashion collections.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=1000&q=85"
+                        alt="Women Dresses">
+
+                    <div class="category-overlay">
+
+                        <div>
+
+                            <h3>
+                                Women Dresses
+                            </h3>
+
+                            <a href="#">
+                                SHOP NOW →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1000&q=85"
+                        alt="Party Wear">
+
+                    <div class="category-overlay">
+
+                        <div>
+
+                            <h3>
+                                Party Wear
+                            </h3>
+
+                            <a href="#">
+                                SHOP NOW →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=1000&q=85"
+                        alt="Casual Wear">
+
+                    <div class="category-overlay">
+
+                        <div>
+
+                            <h3>
+                                Casual Wear
+                            </h3>
+
+                            <a href="#">
+                                SHOP NOW →
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PRODUCTS -->
+
+<section class="section bg-light" id="shop">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>
+                OUR PRODUCTS
+            </small>
+
+            <h2>
+                Trending Dresses
+            </h2>
+
+            <p>
+                Explore our best-selling dresses and
+                latest fashion arrivals.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1000&q=85"
+                            alt="Black Dress">
+
+                        <span class="sale-badge">
+                            SALE
+                        </span>
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            Elegant Black Dress
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,999
+                            </span>
+
+                            <span class="old-price">
+                                ₹2,499
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1000&q=85"
+                            alt="Pink Dress">
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            Pink Party Dress
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹2,499
+                            </span>
+
+                            <span class="old-price">
+                                ₹3,599
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=1000&q=85"
+                            alt="Floral Dress">
+
+                        <span class="sale-badge">
+                            NEW
+                        </span>
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            Floral Summer Dress
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,799
+                            </span>
+
+                            <span class="old-price">
+                                ₹2,299
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 4 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=1000&q=85"
+                            alt="White Dress">
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            White Evening Dress
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹2,199
+                            </span>
+
+                            <span class="old-price">
+                                ₹2,899
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 5 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?auto=format&fit=crop&w=1000&q=85"
+                            alt="Fashion Dress">
+
+                        <span class="sale-badge">
+                            SALE
+                        </span>
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            Modern Beige Dress
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★☆
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,599
+                            </span>
+
+                            <span class="old-price">
+                                ₹2,099
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 6 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=1000&q=85"
+                            alt="Fashion Outfit">
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            Premium Brown Outfit
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹2,799
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 7 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1000&q=85"
+                            alt="Casual Dress">
+
+                        <span class="sale-badge">
+                            NEW
+                        </span>
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            Casual Midi Dress
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,899
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 8 -->
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1000&q=85"
+                            alt="Luxury Dress">
+
+                        <div class="heart">
+                            <i class="bi bi-heart"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="product-info">
+
+                        <h5>
+                            Luxury Fashion Dress
+                        </h5>
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹3,499
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="text-center mt-5">
+
+            <a href="#" class="btn btn-black">
+                VIEW ALL PRODUCTS
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- SALE BANNER -->
+
+<section class="sale-section">
+
+    <div class="container">
+
+        <div class="sale-content">
+
+            <small>
+                LIMITED TIME OFFER
+            </small>
+
+            <h2>
+                UP TO 50% OFF
+            </h2>
+
+            <p>
+                Your favourite styles are now available
+                at amazing prices.
+            </p>
+
+            <a href="#shop"
+               class="btn btn-white">
+
+                SHOP SALE
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FEATURES -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-3">
+
+                <div class="feature-box">
+
+                    <i class="bi bi-truck"></i>
+
+                    <h5>
+                        Free Shipping
+                    </h5>
+
+                    <p>
+                        Free delivery on orders above ₹1999.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="feature-box">
+
+                    <i class="bi bi-arrow-repeat"></i>
+
+                    <h5>
+                        Easy Returns
+                    </h5>
+
+                    <p>
+                        Easy and hassle-free returns.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="feature-box">
+
+                    <i class="bi bi-shield-check"></i>
+
+                    <h5>
+                        Secure Payment
+                    </h5>
+
+                    <p>
+                        100% secure payment options.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <div class="feature-box">
+
+                    <i class="bi bi-headset"></i>
+
+                    <h5>
+                        24/7 Support
+                    </h5>
+
+                    <p>
+                        Our support team is always available.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section class="section bg-light" id="about">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-md-6">
+
+                <img
+                    class="about-img"
+                    src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&w=1200&q=85"
+                    alt="About Vogue">
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="about-content">
+
+                    <small>
+                        ABOUT VOGUE
+                    </small>
+
+                    <h2>
+                        Fashion Made
+                        For You
+                    </h2>
+
+                    <p>
+                        At VOGUE, we believe fashion is more
+                        than just clothing. It is a way to express
+                        your personality, confidence and individuality.
+                    </p>
+
+                    <p>
+                        Our collections are carefully selected
+                        to bring you modern designs, premium
+                        quality and timeless elegance at affordable
+                        prices.
+                    </p>
+
+                    <a href="#" class="btn btn-black mt-3">
+                        DISCOVER MORE
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TESTIMONIALS -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>
+                CUSTOMER REVIEWS
+            </small>
+
+            <h2>
+                What Our Customers Say
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="quote">
+                        “
+                    </div>
+
+                    <p>
+                        Absolutely loved my dress!
+                        The quality is amazing and it
+                        looks even better in person.
+                    </p>
+
+                    <div class="customer">
+                        — Ananya
+                    </div>
+
+                    <div class="stars mt-2">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="quote">
+                        “
+                    </div>
+
+                    <p>
+                        Beautiful collection and very
+                        fast delivery. VOGUE has become
+                        my favourite fashion store.
+                    </p>
+
+                    <div class="customer">
+                        — Meera
+                    </div>
+
+                    <div class="stars mt-2">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="quote">
+                        “
+                    </div>
+
+                    <p>
+                        Great designs, affordable prices
+                        and excellent customer service.
+                        Highly recommended!
+                    </p>
+
+                    <div class="customer">
+                        — Diya
+                    </div>
+
+                    <div class="stars mt-2">
+                        ★★★★★
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- NEWSLETTER -->
+
+<section class="newsletter">
+
+    <div class="container">
+
+        <h2>
+            Join Our Fashion Community
+        </h2>
+
+        <p>
+            Subscribe to get exclusive offers,
+            new arrivals and fashion updates.
+        </p>
+
+
+        <form class="newsletter-form">
+
+            <div class="input-group">
+
+                <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email address"
+                    required>
+
+                <button type="submit">
+                    SUBSCRIBE
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- INSTAGRAM -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <small>
+                FOLLOW US
+            </small>
+
+            <h2>
+                @VOGUEFASHION
+            </h2>
+
+        </div>
+
+
+        <div class="row g-2">
+
+            <div class="col-6 col-md-3">
+
+                <img
+                    class="instagram-img"
+                    src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80">
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <img
+                    class="instagram-img"
+                    src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80">
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <img
+                    class="instagram-img"
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80">
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <img
+                    class="instagram-img"
+                    src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=80">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-md-4">
+
+                <h4>
+                    VOGUE
+                </h4>
+
+                <p>
+                    Modern fashion for modern women.
+                    Discover elegant styles, premium
+                    quality and timeless fashion.
+                </p>
+
+
+                <div class="social-icons">
+
+                    <a href="#">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="bi bi-pinterest"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-2">
+
+                <h4>
+                    Shop
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            New Arrivals
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Dresses
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Party Wear
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Casual Wear
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Sale
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-2">
+
+                <h4>
+                    Help
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#">
+                            Contact Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Shipping
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Returns
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            FAQs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Privacy Policy
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <h4>
+                    Contact Us
+                </h4>
+
+                <p>
+                    <i class="bi bi-geo-alt me-2"></i>
+                    Kerala, India
+                </p>
+
+                <p>
+                    <i class="bi bi-envelope me-2"></i>
+                    support@voguefashion.com
+                </p>
+
+                <p>
+                    <i class="bi bi-telephone me-2"></i>
+                    +91 98765 43210
+                </p>
+
+                <p>
+                    <i class="bi bi-clock me-2"></i>
+                    Mon - Sat : 9:00 AM - 7:00 PM
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 VOGUE Fashion.
+            All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>
